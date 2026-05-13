@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+    <meta name ="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Triatlón App</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/css/styles.css">
+
+    </head>
+    <body>
+
+    
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <span class="material-icons">directions_run</span>
+                Triatlón App
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarMenu">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <span class="material-icons">home</span>
+                            Inicio
+                        </a>
+                    </li>
+                   <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+        <span class="material-icons">manage_accounts</span>
+        Atletas
+    </a>
+    <ul class="dropdown-menu">
+        <li>
+            <a class="dropdown-item" href="pages/crear.html">
+                <span class="material-icons">person_add</span> Registrar
+            </a>
+        </li>
+        <li>
+            <a class="dropdown-item" href="pages/consultar.html">
+                <span class="material-icons">search</span> Consultar
+            </a>
+        </li>
+        <li>
+            <a class="dropdown-item" href="pages/modificar.html">
+                <span class="material-icons">edit</span> Modificar
+            </a>
+        </li>
+            <li>
+            <a class="dropdown-item" href="pages/eliminar.html">
+                <span class="material-icons">delete</span> Eliminar
+                </a>
+            </li>
+        </ul>
+    </li>
+                </ul>
+            </div>
+            </div>
+            
+    </nav>  
+    <section id="hero" class="text-white text-center py-5 hero-section">
+        <div class="container py-5">
+            <h1 class="display-4 fw-bold">Competencia Olímpica de Triatlón</h1>
+            <p class="lead text-center">Natación · Ciclismo · Carrera</p>
+            <p class="text-center">La prueba más completa del deporte olímpico</p>
+        </div>
+    </section>
+    <section id="deporte" class="container py-5">
+        <h2 class="text-center mb-4">¿Que es el Triatlón?</h2>
+        <div class="row">
+            <div class="col-md-6">
+<p >El triatlón es una disciplina deportiva que combina tres pruebas de resistencia: natación, ciclismo y carrera a pie. Más que un deporte, representa un desafío físico y mental donde la estrategia, la constancia y la capacidad de adaptación juegan un papel fundamental.</p>
+
+<p>Nacido como una competencia de alto rendimiento, el triatlón se ha convertido en una actividad practicada por personas de todas las edades y niveles. Existen diferentes modalidades y distancias, desde pruebas sprint ideales para principiantes hasta el exigente Ironman, considerado uno de los retos más duros del deporte mundial.</p>
+<p>Hoy en día, el triatlón es considerado un símbolo de disciplina, resistencia y determinación. Más allá de la competencia, representa un estilo de vida basado en el esfuerzo constante, la preparación física y la superación personal. </p>          
+        </div>
+            <div class="col-md-6"><p>Las primeras competencias similares al triatlón aparecieron en Francia durante la década de 1920, donde se realizaban eventos que mezclaban diferentes disciplinas de resistencia. Sin embargo, el triatlón moderno nació oficialmente en Estados Unidos, específicamente en California, en los años 70. Un grupo de atletas buscaba crear una prueba que pusiera a prueba la resistencia física completa, combinando varias actividades en una sola carrera.</p>
+
+<p>Con el paso del tiempo, el deporte comenzó a ganar popularidad gracias a su alto nivel de exigencia y al espíritu de superación que representa. En 1978 se celebró el primer Ironman en Hawái, una de las competencias más famosas y difíciles del mundo. Esta prueba ayudó a que el triatlón se hiciera conocido internacionalmente.</p></div>
+        </div>
+    </section>
+
+<section id="especialidades" class="py-5 bg-light">
+    <h2 class="text-center mb-4">Especialidades</h2>
+    <div id="carruselEspecialidades" class="carousel slide" data-bs-ride="carousel">
+        
+        
+        <div class="carousel-inner">
+
+    <div class="carousel-item active">
+        <div class="d-flex justify-content-center">
+            <div class="card text-white card-especialidad">
+                <img src="img/supersprint.jpg" class="card-img-top" alt="SuperSprint">
+                <div class="card-body text-center">
+                    <h4 class="card-title">SuperSprint</h4>
+                    <p class="card-text">350m natación - 10km ciclismo - 2.5km carrera</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="carousel-item">
+        <div class="d-flex justify-content-center">
+            <div class="card text-white card-especialidad">
+                <img src="img/sprint.jpg" class="card-img-top" alt="Sprint">
+                <div class="card-body text-center">
+                    <h4 class="card-title">Sprint</h4>
+                    <p class="card-text">750m natación - 20km ciclismo - 5km carrera</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="carousel-item">
+        <div class="d-flex justify-content-center">
+            <div class="card text-white card-especialidad">
+                <img src="img/olimpica.jpg" class="card-img-top" alt="Olímpica">
+                <div class="card-body text-center">
+                    <h4 class="card-title">Olímpica</h4>
+                    <p class="card-text">1.5km natación - 40km ciclismo - 10km carrera</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="carousel-item">
+        <div class="d-flex justify-content-center">
+            <div class="card text-white card-especialidad">
+                <img src="img/media.jpg" class="card-img-top" alt="Media Distancia">
+                <div class="card-body text-center">
+                    <h4 class="card-title">Media Distancia</h4>
+                    <p class="card-text">1.9km natación - 90km ciclismo - 21km carrera</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="carousel-item">
+        <div class="d-flex justify-content-center">
+            <div class="card text-white card-especialidad">
+                <img src="img/larga.jpg" class="card-img-top" alt="Larga Distancia">
+                <div class="card-body text-center">
+                    <h4 class="card-title">Larga Distancia</h4>
+                    <p class="card-text">4km natación - 200km ciclismo - 42km carrera</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="carousel-item">
+        <div class="d-flex justify-content-center">
+            <div class="card text-white card-especialidad">
+                <img src="img/ultraman.jpg" class="card-img-top" alt="Ultraman">
+                <div class="card-body text-center">
+                    <h4 class="card-title">Ultraman</h4>
+                    <p class="card-text">10km natación - 415km ciclismo - 85km carrera</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+        <button class="carousel-control-prev" data-bs-target="#carruselEspecialidades" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" data-bs-target="#carruselEspecialidades" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+</section>
+<section id="categorias" class="container py-5">
+    <h2 class="text-center mb-4">Categorías</h2>
+    <div class="table-responsive">
+        <table class="table table-striped table-hover table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <th>Edad</th>
+                    <th>Categoría</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>7 años</td><td>Pre-Benjamín</td></tr>
+                <tr><td>8-9 años</td><td>Benjamín</td></tr>
+                <tr><td>10-11 años</td><td>Alevín</td></tr>
+                <tr><td>12-13 años</td><td>Infantil</td></tr>
+                <tr><td>14-15 años</td><td>Cadetes</td></tr>
+                <tr><td>16-17 años</td><td>Juvenil</td></tr>
+                <tr><td>18-19 años</td><td>Júnior</td></tr>
+                <tr><td>20-23 años</td><td>Sub-23</td></tr>
+                <tr><td>24-39 años</td><td>Absoluta</td></tr>
+                <tr><td>40-49 años</td><td>Veterano 1</td></tr>
+                <tr><td>50-59 años</td><td>Veterano 2</td></tr>
+                <tr><td>60 o más años</td><td>Veterano 3</td></tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="js/atleta.js"></script>
+    </body>
+    
+</html>
+
+ 

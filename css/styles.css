@@ -1,0 +1,68 @@
+.hero-section {
+    background-image: url('/img/collage-triatlon.jpg');
+    min-height: 400px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 1;
+}
+:root {
+    --color-acento: #3f5397;
+}
+
+.nav-link:hover {
+    color: #3f5397 !important;
+}
+
+.navbar-brand {
+    color: #3f5397 !important;
+}
+
+.hero-section::before {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    text-align: justify;
+}
+.card-especialidad {
+    width: 450px;
+    background-color: #0d47a1;
+}
+
+.card-especialidad img {
+    height: 200px;
+    object-fit: cover;
+    object-position: center top;
+    text-align: justify;
+}
+.carousel-control-prev,
+.carousel-control-next {
+    background-color: rgba(13, 71, 161, 0.5);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.foto-atleta {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
