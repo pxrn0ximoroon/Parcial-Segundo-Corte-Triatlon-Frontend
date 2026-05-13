@@ -1,6 +1,5 @@
 const BASE_URL = 'http://localhost:8081/atleta';
 
-
 let enviando = false;
 
 function crearAtleta() {
@@ -34,32 +33,48 @@ function crearAtleta() {
     }
 }
 
+function manejarError(response) {
+    return response.text().then(text => {
+        try {
+            const err = JSON.parse(text);
+            throw new Error(err.error || JSON.stringify(err));
+        } catch {
+            throw new Error('Error en el servidor');
+        }
+    });
+}
+
 function enviarAtleta(atleta) {
     fetch(`${BASE_URL}/crear`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(atleta)
     })
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) return manejarError(response);
+        return response.json();
+    })
     .then(data => {
         mostrarMensaje('mensaje', 'Atleta registrado exitosamente', 'success');
     })
     .catch(error => {
-        mostrarMensaje('mensaje', 'Error al registrar atleta', 'danger');
+        mostrarMensaje('mensaje', error.message, 'danger');
     });
 }
-
 
 function modificarNombre() {
     const id = document.getElementById('idAtleta').value;
     const nombre = document.getElementById('nuevoNombre').value;
     fetch(`${BASE_URL}/${id}/nombre?nombre=${nombre}`, { method: 'PUT' })
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) return manejarError(response);
+        return response.json();
+    })
     .then(data => {
         mostrarMensaje('mensajeNombre', 'Nombre modificado exitosamente', 'success');
     })
     .catch(error => {
-        mostrarMensaje('mensajeNombre', 'Error al modificar nombre', 'danger');
+        mostrarMensaje('mensajeNombre', error.message, 'danger');
     });
 }
 
@@ -67,108 +82,154 @@ function modificarIdentificacion() {
     const id = document.getElementById('idAtleta').value;
     const identificacion = document.getElementById('nuevaIdentificacion').value;
     fetch(`${BASE_URL}/${id}/identificacion?identificacion=${identificacion}`, { method: 'PUT' })
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) return manejarError(response);
+        return response.json();
+    })
     .then(data => {
         mostrarMensaje('mensajeIdentificacion', 'Identificación modificada exitosamente', 'success');
     })
     .catch(error => {
-        mostrarMensaje('mensajeIdentificacion', 'Error al modificar identificación', 'danger');
+        mostrarMensaje('mensajeIdentificacion', error.message, 'danger');
     });
 }
+
 function modificarCategoria() {
     const id = document.getElementById('idAtleta').value;
     const categoria = document.getElementById('nuevaCategoria').value;
     fetch(`${BASE_URL}/${id}/categoria?categoria=${categoria}`, { method: 'PUT' })
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) return manejarError(response);
+        return response.json();
+    })
     .then(data => {
         mostrarMensaje('mensajeCategoria', 'Categoría modificada exitosamente', 'success');
     })
     .catch(error => {
-        mostrarMensaje('mensajeCategoria', 'Error al modificar categoría', 'danger');
+        mostrarMensaje('mensajeCategoria', error.message, 'danger');
     });
 }
 
+function modificarEspecialidad() {
+    const id = document.getElementById('idAtleta').value;
+    const especialidad = document.getElementById('nuevaEspecialidad').value;
+    fetch(`${BASE_URL}/${id}/especialidad?especialidad=${especialidad}`, { method: 'PUT' })
+    .then(response => {
+        if (!response.ok) return manejarError(response);
+        return response.json();
+    })
+    .then(data => {
+        mostrarMensaje('mensajeEspecialidad', 'Especialidad modificada exitosamente', 'success');
+    })
+    .catch(error => {
+        mostrarMensaje('mensajeEspecialidad', error.message, 'danger');
+    });
+}
+
+function modificarCross() {
+    const id = document.getElementById('idAtleta').value;
+    const modalidadCross = document.getElementById('nuevoCross').checked;
+    fetch(`${BASE_URL}/${id}/cross?modalidadCross=${modalidadCross}`, { method: 'PUT' })
+    .then(response => {
+        if (!response.ok) return manejarError(response);
+        return response.json();
+    })
+    .then(data => {
+        mostrarMensaje('mensajeCross', 'Modalidad Cross modificada exitosamente', 'success');
+    })
+    .catch(error => {
+        mostrarMensaje('mensajeCross', error.message, 'danger');
+    });
+}
 
 function consultarPorIdentificacion() {
     const identificacion = document.getElementById('buscarIdentificacion').value;
-
     fetch(`${BASE_URL}/identificacion/${identificacion}`)
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) return manejarError(response);
+        return response.json();
+    })
     .then(data => {
         mostrarTabla([data], 'resultado');
     })
     .catch(error => {
-        mostrarMensaje('resultado', 'Atleta no encontrado', 'danger');
+        mostrarMensaje('resultado', error.message, 'danger');
     });
 }
 
 function consultarPorGenero() {
     const genero = document.getElementById('buscarGenero').value;
-
     fetch(`${BASE_URL}/genero/${genero}`)
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) return manejarError(response);
+        return response.json();
+    })
     .then(data => {
         mostrarTabla(data, 'resultado');
     })
     .catch(error => {
-        mostrarMensaje('resultado', 'Error al consultar', 'danger');
+        mostrarMensaje('resultado', error.message, 'danger');
     });
 }
 
 function consultarPorCategoria() {
     const categoria = document.getElementById('buscarCategoria').value;
-
     fetch(`${BASE_URL}/categoria/${categoria}`)
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) return manejarError(response);
+        return response.json();
+    })
     .then(data => {
         mostrarTabla(data, 'resultado');
     })
     .catch(error => {
-        mostrarMensaje('resultado', 'Error al consultar', 'danger');
+        mostrarMensaje('resultado', error.message, 'danger');
     });
 }
 
 function consultarPorEspecialidad() {
     const especialidad = document.getElementById('buscarEspecialidad').value;
-
     fetch(`${BASE_URL}/especialidad/${especialidad}`)
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) return manejarError(response);
+        return response.json();
+    })
     .then(data => {
         mostrarTabla(data, 'resultado');
     })
     .catch(error => {
-        mostrarMensaje('resultado', 'Error al consultar', 'danger');
+        mostrarMensaje('resultado', error.message, 'danger');
     });
 }
 
 function consultarPorCross() {
     const cross = document.getElementById('buscarCross').value;
-
     fetch(`${BASE_URL}/cross/${cross}`)
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) return manejarError(response);
+        return response.json();
+    })
     .then(data => {
         mostrarTabla(data, 'resultado');
     })
     .catch(error => {
-        mostrarMensaje('resultado', 'Error al consultar', 'danger');
+        mostrarMensaje('resultado', error.message, 'danger');
     });
 }
 
-
 function eliminarAtleta() {
     const identificacion = document.getElementById('idEliminar').value;
-
     fetch(`${BASE_URL}/identificacion/${identificacion}`, {
         method: 'DELETE'
     })
     .then(response => {
+        if (!response.ok) return manejarError(response);
         mostrarMensaje('mensaje', 'Atleta eliminado exitosamente', 'success');
     })
     .catch(error => {
-        mostrarMensaje('mensaje', 'Error al eliminar atleta', 'danger');
+        mostrarMensaje('mensaje', error.message, 'danger');
     });
 }
-
 
 function mostrarMensaje(elementId, mensaje, tipo) {
     document.getElementById(elementId).innerHTML = `
@@ -181,31 +242,6 @@ function mostrarTabla(atletas, elementId) {
         mostrarMensaje(elementId, 'No se encontraron atletas', 'warning');
         return;
     }
-    function modificarEspecialidad() {
-    const id = document.getElementById('idAtleta').value;
-    const especialidad = document.getElementById('nuevaEspecialidad').value;
-    fetch(`${BASE_URL}/${id}/especialidad?especialidad=${especialidad}`, { method: 'PUT' })
-    .then(response => response.json())
-    .then(data => {
-        mostrarMensaje('mensajeEspecialidad', 'Especialidad modificada exitosamente', 'success');
-    })
-    .catch(error => {
-        mostrarMensaje('mensajeEspecialidad', 'Error al modificar especialidad', 'danger');
-    });
-}
-
-function modificarCross() {
-    const id = document.getElementById('idAtleta').value;
-    const modalidadCross = document.getElementById('nuevoCross').checked;
-    fetch(`${BASE_URL}/${id}/cross?modalidadCross=${modalidadCross}`, { method: 'PUT' })
-    .then(response => response.json())
-    .then(data => {
-        mostrarMensaje('mensajeCross', 'Modalidad Cross modificada exitosamente', 'success');
-    })
-    .catch(error => {
-        mostrarMensaje('mensajeCross', 'Error al modificar modalidad Cross', 'danger');
-    });
-}
 
     let tabla = `
         <table class="table table-striped table-hover table-bordered">
@@ -238,7 +274,7 @@ function modificarCross() {
                 <td>${atleta.categoria}</td>
                 <td>${atleta.especialidad}</td>
                 <td>${atleta.modalidadCross ? 'Sí' : 'No'}</td>
-                <td>${atleta.fotoBase64 ? 
+                <td>${atleta.fotoBase64 ?
                     `<img src="${atleta.fotoBase64}" class="foto-atleta">`
                     : 'Sin foto'}</td>
             </tr>
@@ -247,4 +283,16 @@ function modificarCross() {
 
     tabla += `</tbody></table>`;
     document.getElementById(elementId).innerHTML = tabla;
+}
+
+// Carrusel de especialidad
+const carrusel = document.getElementById('carruselEspecialidad');
+if (carrusel) {
+    carrusel.addEventListener('slid.bs.carousel', function() {
+        const activo = carrusel.querySelector('.carousel-item.active');
+        const especialidad = activo.dataset.especialidad;
+        const nombre = activo.querySelector('h5').textContent;
+        document.getElementById('especialidad').value = especialidad;
+        document.getElementById('especialidadSeleccionada').textContent = nombre + ' seleccionado';
+    });
 }

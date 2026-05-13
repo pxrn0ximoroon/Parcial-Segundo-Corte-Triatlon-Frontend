@@ -78,14 +78,62 @@
 
                     <div class="mb-3">
                         <label class="form-label">Especialidad</label>
-                        <select class="form-select" id="especialidad">
-                            <option value="SUPER_SPRINT">SuperSprint</option>
-                            <option value="SPRINT">Sprint</option>
-                            <option value="OLIMPICA">Olímpica</option>
-                            <option value="MEDIA_DISTANCIA">Media Distancia</option>
-                            <option value="LARGA_DISTANCIA">Larga Distancia</option>
-                            <option value="ULTRAMAN">Ultraman</option>
-                        </select>
+                        <div id="carruselEspecialidad" class="carousel slide" data-bs-ride="false">
+                            <div class="carousel-inner rounded">
+                                <div class="carousel-item active" data-especialidad="SUPER_SPRINT">
+                                    <img src="../img/supersprint.jpg" class="d-block w-100 carousel-especialidad">
+                                    <div class="carousel-caption bg-dark bg-opacity-50 rounded">
+                                        <h5>SuperSprint</h5>
+                                        <p>350m natación + 10km ciclismo + 2.5km carrera</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item" data-especialidad="SPRINT">
+                                    <img src="../img/sprint.jpg" class="d-block w-100 carousel-especialidad">
+                                    <div class="carousel-caption bg-dark bg-opacity-50 rounded">
+                                        <h5>Sprint</h5>
+                                        <p>750m natación + 20km ciclismo + 5km carrera</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item" data-especialidad="OLIMPICA">
+                                    <img src="../img/olimpica.jpg" class="d-block w-100 carousel-especialidad">
+                                    <div class="carousel-caption bg-dark bg-opacity-50 rounded">
+                                        <h5>Olímpica</h5>
+                                        <p>1.5km natación + 40km ciclismo + 10km carrera</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item" data-especialidad="MEDIA_DISTANCIA">
+                                    <img src="../img/media.jpg" class="d-block w-100 carousel-especialidad">
+                                    <div class="carousel-caption bg-dark bg-opacity-50 rounded">
+                                        <h5>Media Distancia</h5>
+                                        <p>1.9km natación + 80km ciclismo + 20km carrera</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item" data-especialidad="LARGA_DISTANCIA">
+                                    <img src="../img/larga.jpg" class="d-block w-100 carousel-especialidad">
+                                    <div class="carousel-caption bg-dark bg-opacity-50 rounded">
+                                        <h5>Larga Distancia</h5>
+                                        <p>4km natación + 180km ciclismo + 42km carrera</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item" data-especialidad="ULTRAMAN">
+                                    <img src="../img/ultraman.jpg" class="d-block w-100 carousel-especialidad">
+                                    <div class="carousel-caption bg-dark bg-opacity-50 rounded">
+                                        <h5>Ultraman</h5>
+                                        <p>10km natación + 415km ciclismo + 85km carrera</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carruselEspecialidad" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon"></span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carruselEspecialidad" data-bs-slide="next">
+                                <span class="carousel-control-next-icon"></span>
+                            </button>
+                        </div>
+                        <div class="text-center mt-2">
+                            <span class="badge bg-primary fs-6" id="especialidadSeleccionada">SuperSprint seleccionado</span>
+                        </div>
+                        <input type="hidden" id="especialidad" value="SUPER_SPRINT">
                     </div>
 
                     <div class="mb-3 form-check">
@@ -111,5 +159,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../js/atleta.js"></script>
+    
 </body>
 </html>
